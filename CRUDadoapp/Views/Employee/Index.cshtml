@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CRUDadoapp.Models.Employee>
+
+<h2>Employee List</h2>
+<a asp-action="Create">Add Employee</a>
+
+<table border="1" cellpadding="8">
+    <tr>
+        <th>Name</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Department</th>
+        <th>City</th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var e in Model)
+    {
+        <tr>
+            <td>@e.Name</td>
+            <td>@e.Gender</td>
+            <td>@e.Age</td>
+            <td>@e.Department</td>
+            <td>@e.City</td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@e.Id">Edit</a> |
+                <a asp-action="Delete" asp-route-id="@e.Id">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
